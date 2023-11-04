@@ -15,10 +15,15 @@
         layer-type="base"
         name="OpenStreetMap"
       ></l-tile-layer>
-      <l-geo-json v-for="(feature, index) in features"
+      <!-- <l-geo-json v-for="(feature, index) in features"
                    
-                  :options-style="{color: feature.properties.color}"  
-                  :geojson="feature"></l-geo-json>
+                  :="{color: feature.properties.color}"  
+                  :geojson="feature"></l-geo-json> -->
+
+       
+      <l-geo-json v-if="visibleLines[0]" :options-style="{color: '#b51212'}" :geojson="proposed"></l-geo-json> 
+      <l-geo-json v-if="visibleLines[1]" :options-style="{color: '#12b551'}" :geojson="time_no_rain"></l-geo-json> 
+      <l-geo-json v-if="visibleLines[2]" :options-style="{color: '#1234b5'}" :geojson="length_no_rain"></l-geo-json> 
       <l-control-zoom position="bottomright"  ></l-control-zoom>
     </l-map>
   </div>
@@ -92,6 +97,30 @@ export default {
         });
         return final;
     })
+
+    const proposed = computed( () =>{
+
+      if(store.modelResult.features.length >= 0){
+        return store.modelResult.features[0]
+      }
+
+    })
+
+    const time_no_rain = computed( () =>{
+
+      if(store.modelResult.features.length >= 1){
+        return store.modelResult.features[1]
+      }
+
+    })
+
+    const length_no_rain = computed( () =>{
+
+      if(store.modelResult.features.length >= 2){
+        return store.modelResult.features[2]
+      }
+
+    })
    
 
     watch(() => store.sourceLocation, () => {
@@ -119,11 +148,6 @@ export default {
      
       return colors[index % colors.length]
     }
-
-    watch(() => visibleLines, () =>{
-      alert()
-    })
-
 
     const toggleLineVisibility = (index:number)  => {
       console.log(visibleLines)
@@ -160,7 +184,10 @@ export default {
       toggleLineVisibility,
       visibleLines,
       features,
-      colors2
+      colors2,
+      proposed,
+      time_no_rain,
+      length_no_rain
     }
   }
 };
