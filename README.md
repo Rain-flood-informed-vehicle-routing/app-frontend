@@ -1,4 +1,3 @@
-# Projeto Vue.js 3 com TypeScript e Vuetify
 
 Este projeto foi criado usando Vue.js 3, TypeScript e a biblioteca de componentes Vuetify. O objetivo é oferecer uma aplicação web para visualização e roteamento de alagamentos.
 
@@ -40,10 +39,8 @@ npm run build
 
 3. Após rodar o comando de build, o site será atualizado automaticamente em minutos no seguinte endereço:
 
-[https://webview-roteamento-alagamentos-upfpc35ezq-uc.a.run.app/](https://webview-roteamento-alagamentos-upfpc35ezq-uc.a.run.app/)
+[https://app-frontend-upfpc35ezq-uc.a.run.app/](https://app-frontend-upfpc35ezq-uc.a.run.app/)
 
 ## Contribuindo
 
 Se você deseja contribuir para este projeto, por favor, crie uma Issue ou um Pull Request detalhando as alterações propostas.
-# app-fronted
-# app-fronted
